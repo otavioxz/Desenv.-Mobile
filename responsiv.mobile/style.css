@@ -1,0 +1,295 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background: #000000;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* esquerda - centro - direita */
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+/* Logo central */
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logo img {
+  height: 50px;
+}
+
+/* Lupa (esquerda) */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.search-bar button img {
+  width: 24px;
+  height: 24px;
+}
+.search-bar input {
+  display: none; /* escondido por padrão */
+  margin-left: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.search-bar input.show {
+  display: block;
+}
+#search-toggle img {
+  filter: invert(1); /* sempre branco */
+}
+
+#search-toggle:hover img {
+  filter: invert(1); /* branco ao passar o mouse */
+}
+
+
+/* Menu (direita) */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav ul li {
+  margin-left: 1rem;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsivo (mobile) */
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: auto 1fr auto; /* lupa - logo - menu/hamburger */
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #000000;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Quando ativo (classe "show"), aparece */
+.search-bar input.show {
+  display: block;
+}
+
+
+/* Quando ativo (classe "show"), aparece */
+.search-bar input.show {
+  display: block;
+}
+
+nav {
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Layout principal */
+main {
+  padding: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;       /* organiza imagem, título, texto e botão verticalmente */
+  justify-content: space-between; /* distribui espaço interno */
+  height: 350px;                /* altura fixa dos cards */
+  border: 2px solid #4c6faf;   /* borda azul */
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 150px;            /* limita altura da imagem */
+  border-radius: 8px;
+  object-fit: contain;           /* mantém proporção da imagem */
+}
+
+.card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.card p {
+  flex-grow: 1;                  /* ocupa espaço disponível */
+  margin: 0.5rem 0 1rem 0;
+}
+
+.card button {
+  background-color: #4c6faf;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.card button:hover {
+  background-color: #3b5599;      /* efeito hover mais escuro */
+}
+
+footer {
+  background: #000000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Menu mobile */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #000000;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    border-radius: 10px;   /* bordas arredondadas */
+    padding: 0.5rem 0;     /* espaço interno */
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0;                      /* remove margem lateral */
+    padding: 0.5rem 1rem;           /* espaço interno em cada item */
+    border-bottom: 1px solid #333;  /* separação entre itens */
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;             /* remove a borda do último item */
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;                  /* ocupa toda a largura do item */
+    transition: background 0.3s;
+    border-radius: 5px;              /* cantos levemente arredondados no link */
+    padding: 0.3rem 0;               /* padding interno do link */
+  }
+
+  nav ul li a:hover {
+    background-color: #3b5599;       /* hover suave nos links */
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Banner full width */
+.banner {
+  width: 100%;
+  overflow: hidden; /* evita scroll horizontal caso a imagem seja maior */
+}
+
+.banner {
+  width: 100%;
+  max-height: 400px; /* altura máxima do banner */
+  overflow: hidden;  /* evita scroll se a imagem for maior */
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+}
+
+.banner img {
+  width: 100%;
+  height: auto;       /* mantém proporção */
+  display: block;
+  object-fit: contain; /* mantém toda a imagem visível */
+}
+
+/* Cards mobile: dois por linha */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* dois cards por linha */
+    gap: 1rem;                             /* espaçamento entre cards */
+  }
+}
